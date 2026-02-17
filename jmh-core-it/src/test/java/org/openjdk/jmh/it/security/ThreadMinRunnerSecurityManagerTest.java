@@ -47,7 +47,7 @@ import java.security.URIParameter;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
-public class ThreadMinRunnerSecurityManagerTest {
+public class ThreadMinRunnerSecurityManagerTest extends SecurityManagerTest {
 
     @Benchmark
     @BenchmarkMode(Mode.All)

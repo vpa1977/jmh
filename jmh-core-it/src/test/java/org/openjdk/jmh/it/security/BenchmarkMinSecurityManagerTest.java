@@ -50,7 +50,7 @@ import java.security.URIParameter;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
-public class BenchmarkMinSecurityManagerTest {
+public class BenchmarkMinSecurityManagerTest extends SecurityManagerTest {
 
     @Setup
     public void setup() throws IOException, NoSuchAlgorithmException, URISyntaxException {

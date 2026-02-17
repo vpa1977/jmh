@@ -50,7 +50,7 @@ import java.security.URIParameter;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
-public class ThreadMinSecurityManagerTest {
+public class ThreadMinSecurityManagerTest extends SecurityManagerTest {
 
     @Setup
     public void setup() throws IOException, NoSuchAlgorithmException, URISyntaxException {

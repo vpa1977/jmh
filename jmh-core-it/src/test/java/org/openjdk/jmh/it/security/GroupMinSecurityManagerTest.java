@@ -52,7 +52,7 @@ import java.security.URIParameter;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Group)
-public class GroupMinSecurityManagerTest {
+public class GroupMinSecurityManagerTest extends SecurityManagerTest {
 
     @Setup
     public void setup() throws IOException, NoSuchAlgorithmException, URISyntaxException {

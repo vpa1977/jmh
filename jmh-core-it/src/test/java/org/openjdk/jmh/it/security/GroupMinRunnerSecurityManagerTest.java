@@ -49,7 +49,7 @@ import java.security.URIParameter;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Group)
-public class GroupMinRunnerSecurityManagerTest {
+public class GroupMinRunnerSecurityManagerTest extends SecurityManagerTest {
 
     @Benchmark
     @BenchmarkMode(Mode.All)

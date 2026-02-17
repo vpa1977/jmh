@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Red Hat, Inc. All rights reserved.
+ * Copyright (c) 2014, 2015, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -24,35 +24,21 @@
  */
 package org.openjdk.jmh.it.security;
 
-import java.security.AccessController;
-import java.security.PrivilegedAction;
+import org.junit.Assume;
+import org.junit.Before;
 
-public class SecurityManagerTestUtils extends SecurityManagerTest {
-
-    public static void install() {
+public class SecurityManagerTest {
+    @Before
+    public void checkSecurityManager() {
+        String specification = System.getProperty("java.specification.version");
+        if (specification == null) {
+            return; // Cannot determine JVM version
+        }
         try {
-            AccessController.doPrivileged(new PrivilegedAction<Void>() {
-                public Void run() {
-                    System.setSecurityManager(new SecurityManager());
-                    return null;
-                }
-            });
-        } catch (UnsupportedOperationException uoe) {
-            // Probably modern JDK without SecurityManager support.
+            int version = Integer.parseUnsignedInt(specification);
+            Assume.assumeTrue("Security manager is not supported on this JVM version", version < 25);
+        } catch (NumberFormatException e) {
+            return;
         }
     }
-
-    public static void remove() {
-        try {
-            AccessController.doPrivileged(new PrivilegedAction<Void>() {
-                public Void run() {
-                    System.setSecurityManager(null);
-                    return null;
-                }
-            });
-        } catch (UnsupportedOperationException uoe) {
-            // Probably modern JDK without SecurityManager support.
-        }
-    }
-
 }

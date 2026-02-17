@@ -45,7 +45,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Benchmark)
-public class BenchmarkMinJVMArgsSecurityManagerTest {
+public class BenchmarkMinJVMArgsSecurityManagerTest extends SecurityManagerTest {
 
     @Benchmark
     @BenchmarkMode(Mode.All)

@@ -45,7 +45,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
 
 @State(Scope.Thread)
-public class ThreadMinJVMArgsSecurityManagerTest {
+public class ThreadMinJVMArgsSecurityManagerTest extends SecurityManagerTest {
 
     @Benchmark
     @BenchmarkMode(Mode.All)
